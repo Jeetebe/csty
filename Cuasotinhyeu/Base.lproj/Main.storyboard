@@ -56,6 +56,11 @@
                                             <action selector="btn_play_click:" destination="Z9h-ay-WuD" eventType="touchUpInside" id="ABY-Yp-mEf"/>
                                         </connections>
                                     </button>
+                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOW-1w-2kL">
+                                        <rect key="frame" x="296" y="3" width="71" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.94816628889999999" green="0.4321675022" blue="0.73875444550000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -155,12 +160,22 @@
                     <tabBarItem key="tabBarItem" title="Mới nhất" image="ic_star_border" id="9mb-E6-Yx4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btnplay" destination="gmh-ci-YQw" id="66e-Ps-tHQ"/>
                         <outlet property="myTable" destination="vzz-dr-7qJ" id="pma-Aw-DdN"/>
+                        <outlet property="myView" destination="fOW-1w-2kL" id="W5q-Zy-X12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJj-mw-vO3" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-322.39999999999998" y="5.8470764617691158"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="5ym-cc-bLe">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="yDn-om-6bT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wiZ-Dd-Gw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="628" y="-51"/>
         </scene>
         <!--Ngày-->
         <scene sceneID="UZY-6E-XPV">

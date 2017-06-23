@@ -9,10 +9,13 @@
 import UIKit
 import  Alamofire
 import AVFoundation
+import AVKit
 
 class MoinhatViewController: UIViewController {
 
+    @IBOutlet weak var myView: UIView!
     
+    @IBOutlet weak var btnplay: UIButton!
     var list=[TinhObj]()
     let vov2:String = "http://210.245.60.242:1935/nghehevov2/vov2/playlist.m3u8"
     let soundUrl = "http://45.121.26.141/w/colorring/al/601/785/0/0000/0001/399.mp3"
@@ -21,6 +24,8 @@ class MoinhatViewController: UIViewController {
     var isPlaying = false
     var timer:Timer!
     
+    var player:AVPlayer!
+    
     @IBOutlet weak var myTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +33,17 @@ class MoinhatViewController: UIViewController {
         
         
         alamofireGetLog()
+        
+        
+        //let url = NSURL(string:"http://45.124.94.83/get_vt/155")
+        let url = NSURL(string:vov2)
+        player = AVPlayer(url: url! as URL)
+        
+        let playerController = AVPlayerViewController()
+        
+        
+        playerController.player = player
+        self.addChildViewController(playerController)
         
         
         let soundUrl = vov2
@@ -49,7 +65,29 @@ class MoinhatViewController: UIViewController {
     }
 
     @IBAction func btn_play_click(_ sender: Any) {
-        playSound2(soundUrl: vov2)
+        //playSound2(soundUrl: vov2)
+        if (!isPlaying)
+        {
+       
+        //self.myView.addSubview(playerController.view)
+        //playerController.view.frame = self.myView.frame
+        
+        player.play()
+            //btnplay.image(for: def)=UIImage(named: "ic_pause")
+            if let image = UIImage(named: "ic_pause.png") {
+                btnplay.setImage(image, for: .normal)
+            }
+            isPlaying=true
+        }
+        else
+        {
+            player.pause()
+            if let image = UIImage(named: "ic_play.png") {
+                btnplay.setImage(image, for: .normal)
+            }
+            isPlaying=false
+        }
+       
     }
     func playSound2(soundUrl: String)
     {
