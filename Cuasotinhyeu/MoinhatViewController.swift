@@ -8,11 +8,18 @@
 
 import UIKit
 import  Alamofire
+import AVFoundation
 
 class MoinhatViewController: UIViewController {
 
     
     var list=[TinhObj]()
+    let vov2:String = "http://210.245.60.242:1935/nghehevov2/vov2/playlist.m3u8"
+    let soundUrl = "http://45.121.26.141/w/colorring/al/601/785/0/0000/0001/399.mp3"
+    
+    var audioPlayer = AVAudioPlayer()
+    var isPlaying = false
+    var timer:Timer!
     
     @IBOutlet weak var myTable: UITableView!
     override func viewDidLoad() {
@@ -23,8 +30,45 @@ class MoinhatViewController: UIViewController {
         alamofireGetLog()
         
         
+        let soundUrl = vov2
+        let sound = NSURL(fileURLWithPath: soundUrl)
+        //var path = NSBundle.mainBundle().URLForResource("Future Islands - Tin Man", withExtension: "mp3")
+        //var error:NSError?
+        
+        //audioPlayer = AVAudioPlayer(contentsOfURL: path!, error: &error)
+        do
+        {
+            //audioPlayer =  try AVAudioPlayer(contentsOfURL: path!)
+            audioPlayer =  try AVAudioPlayer(contentsOf: sound as URL)
+        }
+        catch
+        {
+            print(error)
+        }
+        
     }
 
+    @IBAction func btn_play_click(_ sender: Any) {
+        playSound2(soundUrl: vov2)
+    }
+    func playSound2(soundUrl: String)
+    {
+        do {
+            let fileURL = NSURL(string:soundUrl)
+            //let soundData = NSData(contentsOfURL:fileURL! as URL)
+            //let soundData = NSData(contentsOf: fileURL as! URL)
+            //self.audioPlayer = try AVAudioPlayer(data: soundData! as Data)
+            self.audioPlayer = try AVAudioPlayer(contentsOf: fileURL as! URL)
+            
+            audioPlayer.prepareToPlay()
+            audioPlayer.volume = 1.0
+            //audioPlayer.delegate = self
+            audioPlayer.play()
+        } catch {
+            print("Error getting the audio file")
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
