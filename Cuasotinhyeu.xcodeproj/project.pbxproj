@@ -7,21 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D63F636F9A91F35E29F16C7 /* Pods_Cuasotinhyeu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79983A27C84E42CDFE648AAD /* Pods_Cuasotinhyeu.framework */; };
 		530A20DC1EFCA8EA001D5B39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A20DB1EFCA8EA001D5B39 /* AppDelegate.swift */; };
-		530A20DE1EFCA8EB001D5B39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A20DD1EFCA8EB001D5B39 /* ViewController.swift */; };
+		530A20DE1EFCA8EB001D5B39 /* MoinhatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A20DD1EFCA8EB001D5B39 /* MoinhatViewController.swift */; };
 		530A20E11EFCA8EB001D5B39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 530A20DF1EFCA8EB001D5B39 /* Main.storyboard */; };
 		530A20E31EFCA8EB001D5B39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530A20E21EFCA8EB001D5B39 /* Assets.xcassets */; };
 		530A20E61EFCA8EB001D5B39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 530A20E41EFCA8EB001D5B39 /* LaunchScreen.storyboard */; };
+		530A20EE1EFCB007001D5B39 /* TinhObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A20ED1EFCB007001D5B39 /* TinhObj.swift */; };
+		530A20F01EFCB27A001D5B39 /* SampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A20EF1EFCB27A001D5B39 /* SampleTableViewCell.swift */; };
+		530A20F31EFCB419001D5B39 /* DesignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A20F11EFCB419001D5B39 /* DesignButton.swift */; };
+		530A20F41EFCB419001D5B39 /* DesignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A20F21EFCB419001D5B39 /* DesignTextField.swift */; };
+		530A20F61EFCB481001D5B39 /* DesignImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A20F51EFCB481001D5B39 /* DesignImageView.swift */; };
+		530A20F81EFCB8BB001D5B39 /* NgayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A20F71EFCB8BB001D5B39 /* NgayViewController.swift */; };
+		530A20FA1EFCB8CC001D5B39 /* TimkiemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A20F91EFCB8CC001D5B39 /* TimkiemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2111B843AE08F6B3185075AD /* Pods-Cuasotinhyeu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cuasotinhyeu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cuasotinhyeu/Pods-Cuasotinhyeu.debug.xcconfig"; sourceTree = "<group>"; };
 		530A20D81EFCA8EA001D5B39 /* Cuasotinhyeu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cuasotinhyeu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		530A20DB1EFCA8EA001D5B39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		530A20DD1EFCA8EB001D5B39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		530A20DD1EFCA8EB001D5B39 /* MoinhatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoinhatViewController.swift; sourceTree = "<group>"; };
 		530A20E01EFCA8EB001D5B39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		530A20E21EFCA8EB001D5B39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		530A20E51EFCA8EB001D5B39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		530A20E71EFCA8EB001D5B39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		530A20ED1EFCB007001D5B39 /* TinhObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinhObj.swift; sourceTree = "<group>"; };
+		530A20EF1EFCB27A001D5B39 /* SampleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleTableViewCell.swift; sourceTree = "<group>"; };
+		530A20F11EFCB419001D5B39 /* DesignButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignButton.swift; sourceTree = "<group>"; };
+		530A20F21EFCB419001D5B39 /* DesignTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignTextField.swift; sourceTree = "<group>"; };
+		530A20F51EFCB481001D5B39 /* DesignImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignImageView.swift; sourceTree = "<group>"; };
+		530A20F71EFCB8BB001D5B39 /* NgayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NgayViewController.swift; sourceTree = "<group>"; };
+		530A20F91EFCB8CC001D5B39 /* TimkiemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimkiemViewController.swift; sourceTree = "<group>"; };
+		637F7B355B4A950E4BA472DC /* Pods-Cuasotinhyeu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cuasotinhyeu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cuasotinhyeu/Pods-Cuasotinhyeu.release.xcconfig"; sourceTree = "<group>"; };
+		79983A27C84E42CDFE648AAD /* Pods_Cuasotinhyeu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cuasotinhyeu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D63F636F9A91F35E29F16C7 /* Pods_Cuasotinhyeu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +59,8 @@
 			children = (
 				530A20DA1EFCA8EA001D5B39 /* Cuasotinhyeu */,
 				530A20D91EFCA8EA001D5B39 /* Products */,
+				8FE6122AB237A5B997834F89 /* Pods */,
+				E9FBDF49B896D49281412DF5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +76,37 @@
 			isa = PBXGroup;
 			children = (
 				530A20DB1EFCA8EA001D5B39 /* AppDelegate.swift */,
-				530A20DD1EFCA8EB001D5B39 /* ViewController.swift */,
+				530A20DD1EFCA8EB001D5B39 /* MoinhatViewController.swift */,
+				530A20F71EFCB8BB001D5B39 /* NgayViewController.swift */,
+				530A20F91EFCB8CC001D5B39 /* TimkiemViewController.swift */,
 				530A20DF1EFCA8EB001D5B39 /* Main.storyboard */,
+				530A20ED1EFCB007001D5B39 /* TinhObj.swift */,
+				530A20EF1EFCB27A001D5B39 /* SampleTableViewCell.swift */,
 				530A20E21EFCA8EB001D5B39 /* Assets.xcassets */,
 				530A20E41EFCA8EB001D5B39 /* LaunchScreen.storyboard */,
+				530A20F51EFCB481001D5B39 /* DesignImageView.swift */,
+				530A20F11EFCB419001D5B39 /* DesignButton.swift */,
+				530A20F21EFCB419001D5B39 /* DesignTextField.swift */,
 				530A20E71EFCA8EB001D5B39 /* Info.plist */,
 			);
 			path = Cuasotinhyeu;
+			sourceTree = "<group>";
+		};
+		8FE6122AB237A5B997834F89 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2111B843AE08F6B3185075AD /* Pods-Cuasotinhyeu.debug.xcconfig */,
+				637F7B355B4A950E4BA472DC /* Pods-Cuasotinhyeu.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E9FBDF49B896D49281412DF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79983A27C84E42CDFE648AAD /* Pods_Cuasotinhyeu.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +116,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 530A20EA1EFCA8EB001D5B39 /* Build configuration list for PBXNativeTarget "Cuasotinhyeu" */;
 			buildPhases = (
+				4BB676E5E1F36B52383E26ED /* [CP] Check Pods Manifest.lock */,
 				530A20D41EFCA8EA001D5B39 /* Sources */,
 				530A20D51EFCA8EA001D5B39 /* Frameworks */,
 				530A20D61EFCA8EA001D5B39 /* Resources */,
+				00FB4F62782D5EF0CBB09894 /* [CP] Embed Pods Frameworks */,
+				2A7B0ACDD7F148D27621F330 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +179,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00FB4F62782D5EF0CBB09894 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cuasotinhyeu/Pods-Cuasotinhyeu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A7B0ACDD7F148D27621F330 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cuasotinhyeu/Pods-Cuasotinhyeu-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BB676E5E1F36B52383E26ED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		530A20D41EFCA8EA001D5B39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				530A20DE1EFCA8EB001D5B39 /* ViewController.swift in Sources */,
+				530A20EE1EFCB007001D5B39 /* TinhObj.swift in Sources */,
+				530A20F81EFCB8BB001D5B39 /* NgayViewController.swift in Sources */,
+				530A20F61EFCB481001D5B39 /* DesignImageView.swift in Sources */,
+				530A20F01EFCB27A001D5B39 /* SampleTableViewCell.swift in Sources */,
+				530A20FA1EFCB8CC001D5B39 /* TimkiemViewController.swift in Sources */,
+				530A20DE1EFCA8EB001D5B39 /* MoinhatViewController.swift in Sources */,
 				530A20DC1EFCA8EA001D5B39 /* AppDelegate.swift in Sources */,
+				530A20F31EFCB419001D5B39 /* DesignButton.swift in Sources */,
+				530A20F41EFCB419001D5B39 /* DesignTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +363,7 @@
 		};
 		530A20EB1EFCA8EB001D5B39 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2111B843AE08F6B3185075AD /* Pods-Cuasotinhyeu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cuasotinhyeu/Info.plist;
@@ -272,6 +376,7 @@
 		};
 		530A20EC1EFCA8EB001D5B39 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 637F7B355B4A950E4BA472DC /* Pods-Cuasotinhyeu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Cuasotinhyeu/Info.plist;
@@ -301,6 +406,7 @@
 				530A20EC1EFCA8EB001D5B39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
