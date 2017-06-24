@@ -18,8 +18,9 @@ class TinhObj
     var singernameid:String = ""
     var nameid:String = ""
     var ngay:String = ""
+    var urlmp3:String = ""
     
-     required init?(chude: String?, noidung: String?, singername: String?, singernameid: String?, nameid: String?, ngay: String?) {
+    required init?(chude: String?, noidung: String?, singername: String?, singernameid: String?, nameid: String?, ngay: String?, urlmp3:String?) {
         self.chude = chude!
         self.noidung=noidung!
         self.singername=singername!
@@ -27,6 +28,7 @@ class TinhObj
         self.singernameid = singernameid!
         self.nameid=nameid!
         self.ngay=ngay!
+        self.urlmp3=urlmp3!
      
         
     }
@@ -45,7 +47,7 @@ class TinhObj
         self.singernameid = json["singernameid"].string!
         self.nameid = json["nameid"].string!
         self.ngay = json["ngay"].string!
-        
+          self.urlmp3 = json["urlmp3"].string!
           }
     
     convenience init?(json: [String: Any]) {
@@ -54,11 +56,12 @@ class TinhObj
             let singername = json["singername"] as? String,
         let singernameid = json["singernameid"] as? String,
         let nameid = json["nameid"] as? String,
-        let ngay = json["ngay"] as? String
+        let ngay = json["ngay"] as? String,
+            let urlmp3 = json["urlmp3"] as? String
                        else {
                 return nil
         }
         
-        self.init(chude: chude,noidung: noidung,singername: singername,singernameid: singernameid,nameid: nameid,ngay: ngay)    }
+        self.init(chude: chude,noidung: noidung,singername: singername,singernameid: singernameid,nameid: nameid,ngay: ngay, urlmp3: urlmp3)    }
     
 }

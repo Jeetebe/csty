@@ -13,16 +13,16 @@ import AVKit
 
 class MoinhatViewController: UIViewController {
 
-    @IBOutlet weak var myView: UIView!
+  var isPlaying = false
+    
+    @IBOutlet weak var demoLabel: MarqueeLabel!
     
     @IBOutlet weak var btnplay: UIButton!
     var list=[TinhObj]()
     let vov2:String = "http://210.245.60.242:1935/nghehevov2/vov2/playlist.m3u8"
     let soundUrl = "http://45.121.26.141/w/colorring/al/601/785/0/0000/0001/399.mp3"
     
-    var audioPlayer = AVAudioPlayer()
-    var isPlaying = false
-    var timer:Timer!
+   
     
     var player:AVPlayer!
     
@@ -46,21 +46,12 @@ class MoinhatViewController: UIViewController {
         self.addChildViewController(playerController)
         
         
-        let soundUrl = vov2
-        let sound = NSURL(fileURLWithPath: soundUrl)
-        //var path = NSBundle.mainBundle().URLForResource("Future Islands - Tin Man", withExtension: "mp3")
-        //var error:NSError?
+              
+        self.demoLabel.innerText = "Trực tiểp Cửa sổ tinh yêu từ 10h00 đến 10h45 Chủ nhật hàng tuần"
         
-        //audioPlayer = AVAudioPlayer(contentsOfURL: path!, error: &error)
-        do
-        {
-            //audioPlayer =  try AVAudioPlayer(contentsOfURL: path!)
-            audioPlayer =  try AVAudioPlayer(contentsOf: sound as URL)
-        }
-        catch
-        {
-            print(error)
-        }
+        self.demoLabel.innerSize = 15
+        self.demoLabel.innerColor = UIColor.blue
+
         
     }
 
@@ -89,24 +80,7 @@ class MoinhatViewController: UIViewController {
         }
        
     }
-    func playSound2(soundUrl: String)
-    {
-        do {
-            let fileURL = NSURL(string:soundUrl)
-            //let soundData = NSData(contentsOfURL:fileURL! as URL)
-            //let soundData = NSData(contentsOf: fileURL as! URL)
-            //self.audioPlayer = try AVAudioPlayer(data: soundData! as Data)
-            self.audioPlayer = try AVAudioPlayer(contentsOf: fileURL as! URL)
-            
-            audioPlayer.prepareToPlay()
-            audioPlayer.volume = 1.0
-            //audioPlayer.delegate = self
-            audioPlayer.play()
-        } catch {
-            print("Error getting the audio file")
-        }
-    }
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -135,6 +109,13 @@ class MoinhatViewController: UIViewController {
         cell.lbchude.text=chude
         cell.lbngay.text=ngay
         cell.lbsinger.text=singer
+        let imgsinger:String = "http://123.30.100.126:8081/simmobi/img/" + img.replacingOccurrences(of: " ", with: "%20") + ".png"
+        //print("img: \( imgsinger)")
+        if let url = NSURL(string: imgsinger) {
+            if let data = NSData(contentsOf: url as URL) {
+                cell.imgsinger.image = UIImage(data: data as Data)
+            }
+        }
         
               return cell as SampleTableViewCell
     }
@@ -171,6 +152,29 @@ class MoinhatViewController: UIViewController {
                 self.myTable.reloadData()
                 
         }
+    }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        print("click")
+        //if segue.identifier == "segplay"
+        
+            
+            if let indexPath = self.myTable.indexPathForSelectedRow {
+                print("row \(indexPath)")
+                
+//                if let cell = self.myTable.cellForRow(at: indexPath) as? SampleTableViewCell {
+//                    //
+//                                  }
+              
+                let editTaskVC = segue.destination as! PlayerViewController
+                editTaskVC.chonInt = indexPath.row
+                editTaskVC.list=self.list
+
+                
+            }
+        
     }
 
 }
