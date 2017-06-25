@@ -10,8 +10,14 @@ import UIKit
 import  Alamofire
 import AVFoundation
 import AVKit
+import GoogleMobileAds
 
 class MoinhatViewController: UIViewController {
+
+    
+
+    @IBOutlet weak var bannerView: GADBannerView!
+  
 
   var isPlaying = false
     
@@ -31,9 +37,28 @@ class MoinhatViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
+        //bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"  //test
+        
+        
+        bannerView.adUnitID = "ca-app-pub-8623108209004118/7189249185"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
         
         alamofireGetLog()
         
+    
+        do {
+            //keep alive audio at background
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch _ {
+        }
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+
         
         //let url = NSURL(string:"http://45.124.94.83/get_vt/155")
         let url = NSURL(string:vov2)
@@ -163,14 +188,12 @@ class MoinhatViewController: UIViewController {
             
             if let indexPath = self.myTable.indexPathForSelectedRow {
                 print("row \(indexPath)")
-                
-//                if let cell = self.myTable.cellForRow(at: indexPath) as? SampleTableViewCell {
-//                    //
-//                                  }
+
               
                 let editTaskVC = segue.destination as! PlayerViewController
                 editTaskVC.chonInt = indexPath.row
                 editTaskVC.list=self.list
+                editTaskVC.loai=0
 
                 
             }

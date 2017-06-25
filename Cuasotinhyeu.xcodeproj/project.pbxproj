@@ -28,19 +28,11 @@
 		FA139B531EFE25460082F952 /* demo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA139B491EFE25460082F952 /* demo3.jpg */; };
 		FA139B541EFE25460082F952 /* demo1.png in Resources */ = {isa = PBXBuildFile; fileRef = FA139B4A1EFE25460082F952 /* demo1.png */; };
 		FA139B551EFE25460082F952 /* list.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA139B4C1EFE25460082F952 /* list.plist */; };
-		FA139BA11EFE35410082F952 /* DetailPlayeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA139BA01EFE35410082F952 /* DetailPlayeController.swift */; };
 		FA139BA31EFEA5B60082F952 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA139BA21EFEA5B60082F952 /* PlayerViewController.swift */; };
-		FA55DAB61EFECF3100E3ADFD /* StartApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA55DAB51EFECF3100E3ADFD /* StartApp.framework */; };
-		FA55DAB71EFECF4900E3ADFD /* StartApp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FA55DAAF1EFECCF500E3ADFD /* StartApp.bundle */; };
-		FA6A9DD01EFEC8CF00C29677 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6A9DCF1EFEC8CF00C29677 /* libz.tbd */; };
-		FA6A9DD21EFECA7600C29677 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6A9DD11EFECA7600C29677 /* CoreTelephony.framework */; };
-		FA6A9DD41EFECA7D00C29677 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6A9DD31EFECA7D00C29677 /* SystemConfiguration.framework */; };
-		FA6A9DD61EFECA8500C29677 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6A9DD51EFECA8500C29677 /* CoreGraphics.framework */; };
-		FA6A9DD81EFECA8D00C29677 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6A9DD71EFECA8D00C29677 /* StoreKit.framework */; };
-		FA6A9DDA1EFECA9300C29677 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6A9DD91EFECA9300C29677 /* AdSupport.framework */; };
-		FA6A9DDC1EFECA9E00C29677 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6A9DDB1EFECA9E00C29677 /* QuartzCore.framework */; };
-		FA6A9DDE1EFECAA500C29677 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6A9DDD1EFECAA500C29677 /* CoreMedia.framework */; };
-		FA6A9DE01EFECAAB00C29677 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6A9DDF1EFECAAB00C29677 /* AVFoundation.framework */; };
+		FA53D81F1EFF79AB0025D940 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA53D81E1EFF79AB0025D940 /* GoogleService-Info.plist */; };
+		FA53D8211EFF978F0025D940 /* NgayObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53D8201EFF978F0025D940 /* NgayObj.swift */; };
+		FA53D8231EFFF44C0025D940 /* CelTK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53D8221EFFF44C0025D940 /* CelTK.swift */; };
+		FA53D8251EFFF4930025D940 /* CellNgay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53D8241EFFF4930025D940 /* CellNgay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,12 +61,12 @@
 		FA139B491EFE25460082F952 /* demo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = demo3.jpg; sourceTree = "<group>"; };
 		FA139B4A1EFE25460082F952 /* demo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo1.png; sourceTree = "<group>"; };
 		FA139B4C1EFE25460082F952 /* list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = list.plist; sourceTree = "<group>"; };
-		FA139BA01EFE35410082F952 /* DetailPlayeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPlayeController.swift; sourceTree = "<group>"; };
 		FA139BA21EFEA5B60082F952 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		FA53D81E1EFF79AB0025D940 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/Music-Player-master/Music Player/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA53D8201EFF978F0025D940 /* NgayObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NgayObj.swift; sourceTree = "<group>"; };
+		FA53D8221EFFF44C0025D940 /* CelTK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelTK.swift; sourceTree = "<group>"; };
+		FA53D8241EFFF4930025D940 /* CellNgay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellNgay.swift; sourceTree = "<group>"; };
 		FA55DAAF1EFECCF500E3ADFD /* StartApp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = StartApp.bundle; path = "../../../Downloads/Music-Player-master/Music Player/StartApp.bundle"; sourceTree = "<group>"; };
-		FA55DAB01EFECCF500E3ADFD /* StartApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StartApp.framework; path = "../../Downloads/Music-Player-master/Music Player/StartApp.framework"; sourceTree = "<group>"; };
-		FA55DAB41EFECE4500E3ADFD /* Cuasotinhyeu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cuasotinhyeu-Bridging-Header.h"; sourceTree = "<group>"; };
-		FA55DAB51EFECF3100E3ADFD /* StartApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StartApp.framework; sourceTree = "<group>"; };
 		FA6A9DCF1EFEC8CF00C29677 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		FA6A9DD11EFECA7600C29677 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FA6A9DD31EFECA7D00C29677 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -91,16 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA55DAB61EFECF3100E3ADFD /* StartApp.framework in Frameworks */,
-				FA6A9DE01EFECAAB00C29677 /* AVFoundation.framework in Frameworks */,
-				FA6A9DDE1EFECAA500C29677 /* CoreMedia.framework in Frameworks */,
-				FA6A9DDC1EFECA9E00C29677 /* QuartzCore.framework in Frameworks */,
-				FA6A9DDA1EFECA9300C29677 /* AdSupport.framework in Frameworks */,
-				FA6A9DD81EFECA8D00C29677 /* StoreKit.framework in Frameworks */,
-				FA6A9DD61EFECA8500C29677 /* CoreGraphics.framework in Frameworks */,
-				FA6A9DD41EFECA7D00C29677 /* SystemConfiguration.framework in Frameworks */,
-				FA6A9DD21EFECA7600C29677 /* CoreTelephony.framework in Frameworks */,
-				FA6A9DD01EFEC8CF00C29677 /* libz.tbd in Frameworks */,
 				4D63F636F9A91F35E29F16C7 /* Pods_Cuasotinhyeu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,7 +93,6 @@
 		530A20CF1EFCA8E9001D5B39 = {
 			isa = PBXGroup;
 			children = (
-				FA55DAB41EFECE4500E3ADFD /* Cuasotinhyeu-Bridging-Header.h */,
 				530A20DA1EFCA8EA001D5B39 /* Cuasotinhyeu */,
 				530A20D91EFCA8EA001D5B39 /* Products */,
 				8FE6122AB237A5B997834F89 /* Pods */,
@@ -130,18 +111,21 @@
 		530A20DA1EFCA8EA001D5B39 /* Cuasotinhyeu */ = {
 			isa = PBXGroup;
 			children = (
+				FA53D81E1EFF79AB0025D940 /* GoogleService-Info.plist */,
 				FA55DAAF1EFECCF500E3ADFD /* StartApp.bundle */,
 				FA139B4E1EFE25460082F952 /* Settings */,
 				530A20DB1EFCA8EA001D5B39 /* AppDelegate.swift */,
 				FA139B401EFE18370082F952 /* MarqueeLabel.swift */,
 				530A20DD1EFCA8EB001D5B39 /* MoinhatViewController.swift */,
-				FA139BA01EFE35410082F952 /* DetailPlayeController.swift */,
 				530A20F71EFCB8BB001D5B39 /* NgayViewController.swift */,
 				530A20F91EFCB8CC001D5B39 /* TimkiemViewController.swift */,
 				FA139BA21EFEA5B60082F952 /* PlayerViewController.swift */,
 				530A20DF1EFCA8EB001D5B39 /* Main.storyboard */,
 				530A20ED1EFCB007001D5B39 /* TinhObj.swift */,
+				FA53D8201EFF978F0025D940 /* NgayObj.swift */,
 				530A20EF1EFCB27A001D5B39 /* SampleTableViewCell.swift */,
+				FA53D8221EFFF44C0025D940 /* CelTK.swift */,
+				FA53D8241EFFF4930025D940 /* CellNgay.swift */,
 				530A20E21EFCA8EB001D5B39 /* Assets.xcassets */,
 				530A20E41EFCA8EB001D5B39 /* LaunchScreen.storyboard */,
 				530A20F51EFCB481001D5B39 /* DesignImageView.swift */,
@@ -164,8 +148,6 @@
 		E9FBDF49B896D49281412DF5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FA55DAB51EFECF3100E3ADFD /* StartApp.framework */,
-				FA55DAB01EFECCF500E3ADFD /* StartApp.framework */,
 				FA6A9DDF1EFECAAB00C29677 /* AVFoundation.framework */,
 				FA6A9DDD1EFECAA500C29677 /* CoreMedia.framework */,
 				FA6A9DDB1EFECA9E00C29677 /* QuartzCore.framework */,
@@ -254,6 +236,7 @@
 				TargetAttributes = {
 					530A20D71EFCA8EA001D5B39 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = AW2QKY6358;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -281,7 +264,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA55DAB71EFECF4900E3ADFD /* StartApp.bundle in Resources */,
 				FA139B551EFE25460082F952 /* list.plist in Resources */,
 				FA139B531EFE25460082F952 /* demo3.jpg in Resources */,
 				FA139B521EFE25460082F952 /* demo2.jpg in Resources */,
@@ -290,6 +272,7 @@
 				530A20E61EFCA8EB001D5B39 /* LaunchScreen.storyboard in Resources */,
 				530A20E31EFCA8EB001D5B39 /* Assets.xcassets in Resources */,
 				FA139B501EFE25460082F952 /* Beat It.mp3 in Resources */,
+				FA53D81F1EFF79AB0025D940 /* GoogleService-Info.plist in Resources */,
 				FA139B541EFE25460082F952 /* demo1.png in Resources */,
 				530A20E11EFCA8EB001D5B39 /* Main.storyboard in Resources */,
 			);
@@ -350,17 +333,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA139BA11EFE35410082F952 /* DetailPlayeController.swift in Sources */,
 				530A20EE1EFCB007001D5B39 /* TinhObj.swift in Sources */,
 				530A20F81EFCB8BB001D5B39 /* NgayViewController.swift in Sources */,
+				FA53D8251EFFF4930025D940 /* CellNgay.swift in Sources */,
 				530A20F61EFCB481001D5B39 /* DesignImageView.swift in Sources */,
 				530A20F01EFCB27A001D5B39 /* SampleTableViewCell.swift in Sources */,
 				FA139BA31EFEA5B60082F952 /* PlayerViewController.swift in Sources */,
 				530A20FA1EFCB8CC001D5B39 /* TimkiemViewController.swift in Sources */,
+				FA53D8211EFF978F0025D940 /* NgayObj.swift in Sources */,
 				530A20DE1EFCA8EB001D5B39 /* MoinhatViewController.swift in Sources */,
 				530A20DC1EFCA8EA001D5B39 /* AppDelegate.swift in Sources */,
 				FA139B411EFE18370082F952 /* MarqueeLabel.swift in Sources */,
 				530A20F31EFCB419001D5B39 /* DesignButton.swift in Sources */,
+				FA53D8231EFFF44C0025D940 /* CelTK.swift in Sources */,
 				530A20F41EFCB419001D5B39 /* DesignTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +472,7 @@
 			baseConfigurationReference = 2111B843AE08F6B3185075AD /* Pods-Cuasotinhyeu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AW2QKY6358;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,7 +484,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jtb4.cuasotinhyeu.Cuasotinhyeu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/macbook/Documents/csty/Cuasotinhyeu/Cuasotinhyeu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -508,6 +493,7 @@
 			baseConfigurationReference = 637F7B355B4A950E4BA472DC /* Pods-Cuasotinhyeu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AW2QKY6358;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -519,7 +505,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jtb4.cuasotinhyeu.Cuasotinhyeu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/macbook/Documents/csty/Cuasotinhyeu/Cuasotinhyeu-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -17,6 +17,8 @@
 import UIKit
 import AVFoundation
 import MediaPlayer
+import GoogleMobileAds
+import Alamofire
 
 
 extension UIImageView {
@@ -32,7 +34,7 @@ extension UIImageView {
 
 
 
-class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDataSource,AVAudioPlayerDelegate {
+class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDataSource,AVAudioPlayerDelegate, GADNativeExpressAdViewDelegate, GADVideoControllerDelegate  {
     
     //Choose background here. Between 1 - 7
     let selectedBackground = 1
@@ -41,7 +43,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     var audioPlayer:AVAudioPlayer! = nil
     var currentAudio = ""
     var currentAudioPath:URL!
-    var audioList:NSArray!
+    //var audioList:NSArray!
     var currentAudioIndex = 0
     var timer:Timer!
     var audioLength = 0.0
@@ -56,16 +58,17 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     var list=[TinhObj]()
     var chonInt:Int!
+    var loai:Int!
     
     
-    @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet var songNo : UILabel!
+    //@IBOutlet weak var backgroundImageView: UIImageView!
+    //@IBOutlet var songNo : UILabel!
     @IBOutlet var lineView : UIView!
-    @IBOutlet weak var albumArtworkImageView: UIImageView!
+    //ß@IBOutlet weak var albumArtworkImageView: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
     //@IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet var songNameLabel : UILabel!
-    @IBOutlet var songNameLabelPlaceHolder : UILabel!
+    //@IBOutlet var songNameLabelPlaceHolder : UILabel!
     @IBOutlet var progressTimerLabel : UILabel!
     @IBOutlet var playerProgressSlider : UISlider!
     @IBOutlet var totalLengthOfAudioLabel : UILabel!
@@ -74,14 +77,19 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     @IBOutlet var nextButton : UIButton!
     @IBOutlet var listButton : UIButton!
     @IBOutlet var tableView : UITableView!
-    @IBOutlet var blurImageView : UIImageView!
-    @IBOutlet var enhancer : UIView!
+   // @IBOutlet var blurImageView : UIImageView!
+    //@IBOutlet var enhancer : UIView!
     @IBOutlet var tableViewContainer : UIView!
     
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var repeatButton: UIButton!
     
     //@IBOutlet weak var blurView: UIVisualEffectView!
+    let adUnitId = "ca-app-pub-3940256099942544/8897359316"
+    
+    @IBOutlet weak var nativeExpressAdView: GADNativeExpressAdView!
+
+    
     
     @IBAction func close_click(_ sender: Any) {
         if (audioPlayer.isPlaying)
@@ -99,9 +107,10 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     // This shows media info on lock screen - used currently and perform controls
     func showMediaInfo(){
-        let artistName = readArtistNameFromPlist(currentAudioIndex)
-        let songName = readSongNameFromPlist(currentAudioIndex)
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist : artistName,  MPMediaItemPropertyTitle : songName]
+//        let artistName = readArtistNameFromPlist(currentAudioIndex)
+//        let songName = readSongNameFromPlist(currentAudioIndex)
+//        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist : artistName,  MPMediaItemPropertyTitle : songName]
+        
     }
     
     override func remoteControlReceived(with event: UIEvent?) {
@@ -212,11 +221,12 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        if (loai==1)
+        {
+            alamofireGetLog()
+        }
         
-        //assing background
-        backgroundImageView.image = UIImage(named: "background\(selectedBackground)")
-        
-        //this sets last listened trach number as current
         retrieveSavedTrackNumber()
         prepareAudio()
         updateLabels()
@@ -240,7 +250,59 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         
         prepareAudio()
         playAudio()
+        
+        
+        nativeExpressAdView.adUnitID = adUnitId
+        nativeExpressAdView.rootViewController = self
+        nativeExpressAdView.delegate = self as! GADNativeExpressAdViewDelegate
+        
+        // The video options object can be used to control the initial mute state of video assets.
+        // By default, they start muted.
+        let videoOptions = GADVideoOptions()
+        videoOptions.startMuted = true
+        nativeExpressAdView.setAdOptions([videoOptions])
+        
+        // Set this UIViewController as the video controller delegate, so it will be notified of events
+        // in the video lifecycle.
+        nativeExpressAdView.videoController.delegate = self as! GADVideoControllerDelegate
+        
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        nativeExpressAdView.load(request)
 
+    }
+
+    func alamofireGetLog() {
+        let todoEndpoint: String = "http://123.30.100.126:8081/simmobi/rest/csty/gettophit"
+        Alamofire.request(todoEndpoint)
+            
+            .responseJSON { response in
+                guard response.result.error == nil else {
+                    // got an error in getting the data, need to handle it
+                    print(response.result.error!)
+                    //completionHandler(.failure(response.result.error!))
+                    return
+                }
+                
+                // make sure we got JSON and it's an array of dictionaries
+                guard let json = response.result.value as? [[String: AnyObject]] else {
+                    print("didn't get todo objects as JSON from API")
+                    //                    completionHandler(.failure(BackendError.objectSerialization(reason: "Did not get JSON array in response")))
+                    return
+                }
+                
+                // turn each item in JSON in to Todo object
+                var todos:[TinhObj] = []
+                for element in json {
+                    if let todoResult = TinhObj(json: element) {
+                        todos.append(todoResult)
+                        self.list.append(todoResult)
+                    }
+                }
+                print("out:\(self.list.count)")
+                //self.myTable.reloadData()
+                
+        }
     }
 
     
@@ -273,7 +335,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        albumArtworkImageView.setRounded()
+        //albumArtworkImageView.setRounded()
     }
     
     override func didReceiveMemoryWarning() {
@@ -300,17 +362,17 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
             //shuffle songs but do not repeat at the end
             //Shuffle Logic : Create an array and put current song into the array then when next song come randomly choose song from available song and check against the array it is in the array try until you find one if the array and number of songs are same then stop playing as all songs are already played.
                shuffleArray.append(currentAudioIndex)
-                if shuffleArray.count >= audioList.count {
-                playButton.setImage( UIImage(named: "play"), for: UIControlState())
-                return
-                
-                }
-                
+//                if shuffleArray.count >= audioList.count {
+//                playButton.setImage( UIImage(named: "play"), for: UIControlState())
+//                return
+//                
+//                }
+//                
                 
                 var randomIndex = 0
                 var newIndex = false
                 while newIndex == false {
-                    randomIndex =  Int(arc4random_uniform(UInt32(audioList.count)))
+                    //randomIndex =  Int(arc4random_uniform(UInt32(audioList.count)))
                     if shuffleArray.contains(randomIndex) {
                         newIndex = false
                     }else{
@@ -324,15 +386,15 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
             } else if shuffleState == true && repeatState == true {
                 //shuffle song endlessly
                 shuffleArray.append(currentAudioIndex)
-                if shuffleArray.count >= audioList.count {
-                    shuffleArray.removeAll()
-                }
+//                if shuffleArray.count >= audioList.count {
+//                    shuffleArray.removeAll()
+//                }
                 
                 
                 var randomIndex = 0
                 var newIndex = false
                 while newIndex == false {
-                    randomIndex =  Int(arc4random_uniform(UInt32(audioList.count)))
+                    //randomIndex =  Int(arc4random_uniform(UInt32(audioList.count)))
                     if shuffleArray.contains(randomIndex) {
                         newIndex = false
                     }else{
@@ -351,11 +413,11 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     
     //Sets audio file URL
-    func setCurrentAudioPath(){
-        currentAudio = readSongNameFromPlist(currentAudioIndex)
-        currentAudioPath = URL(fileURLWithPath: Bundle.main.path(forResource: currentAudio, ofType: "mp3")!)
-        print("\(currentAudioPath)")
-    }
+//    func setCurrentAudioPath(){
+//        currentAudio = readSongNameFromPlist(currentAudioIndex)
+//        currentAudioPath = URL(fileURLWithPath: Bundle.main.path(forResource: currentAudio, ofType: "mp3")!)
+//        print("\(currentAudioPath)")
+//    }
     
     
     func saveCurrentTrackNumber(){
@@ -411,7 +473,24 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
 //    }
     func prepareAudio()
     {
+        //setCurrentAudioPath()
+        do {
+            //keep alive audio at background
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch _ {
+        }
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+
         let soundUrl: String = list[currentAudioIndex].urlmp3
+        let singer:String = self.list[currentAudioIndex].singername
+        let chude:String = self.list[currentAudioIndex].chude
+        artistNameLabel.text=singer
+        songNameLabel.text=chude
+        
         do {
             let fileURL = NSURL(string:soundUrl)
             let soundData = NSData(contentsOf:fileURL! as URL)
@@ -440,7 +519,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     func playNextAudio(){
         currentAudioIndex += 1
-        if currentAudioIndex>audioList.count-1{
+        if currentAudioIndex>self.list.count-1{
             currentAudioIndex -= 1
             
             return
@@ -555,73 +634,73 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     
     //Read plist file and creates an array of dictionary
-    func readFromPlist(){
-        let path = Bundle.main.path(forResource: "list", ofType: "plist")
-        audioList = NSArray(contentsOfFile:path!)
-    }
-    
-    func readArtistNameFromPlist(_ indexNumber: Int) -> String {
-        readFromPlist()
-        var infoDict = NSDictionary();
-        infoDict = audioList.object(at: indexNumber) as! NSDictionary
-        let artistName = infoDict.value(forKey: "artistName") as! String
-        return artistName
-    }
-    
-    func readAlbumNameFromPlist(_ indexNumber: Int) -> String {
-        readFromPlist()
-        var infoDict = NSDictionary();
-        infoDict = audioList.object(at: indexNumber) as! NSDictionary
-        let albumName = infoDict.value(forKey: "albumName") as! String
-        return albumName
-    }
-
-    
-    func readSongNameFromPlist(_ indexNumber: Int) -> String {
-        readFromPlist()
-        var songNameDict = NSDictionary();
-        songNameDict = audioList.object(at: indexNumber) as! NSDictionary
-        let songName = songNameDict.value(forKey: "songName") as! String
-        return songName
-    }
-    
-    func readArtworkNameFromPlist(_ indexNumber: Int) -> String {
-        readFromPlist()
-        var infoDict = NSDictionary();
-        infoDict = audioList.object(at: indexNumber) as! NSDictionary
-        let artworkName = infoDict.value(forKey: "albumArtwork") as! String
-        return artworkName
-    }
+//    func readFromPlist(){
+//        let path = Bundle.main.path(forResource: "list", ofType: "plist")
+//        audioList = NSArray(contentsOfFile:path!)
+//    }
+//    
+//    func readArtistNameFromPlist(_ indexNumber: Int) -> String {
+//        readFromPlist()
+//        var infoDict = NSDictionary();
+//        infoDict = audioList.object(at: indexNumber) as! NSDictionary
+//        let artistName = infoDict.value(forKey: "artistName") as! String
+//        return artistName
+//    }
+//    
+//    func readAlbumNameFromPlist(_ indexNumber: Int) -> String {
+//        readFromPlist()
+//        var infoDict = NSDictionary();
+//        infoDict = audioList.object(at: indexNumber) as! NSDictionary
+//        let albumName = infoDict.value(forKey: "albumName") as! String
+//        return albumName
+//    }
+//
+//    
+//    func readSongNameFromPlist(_ indexNumber: Int) -> String {
+//        readFromPlist()
+//        var songNameDict = NSDictionary();
+//        songNameDict = audioList.object(at: indexNumber) as! NSDictionary
+//        let songName = songNameDict.value(forKey: "songName") as! String
+//        return songName
+//    }
+//    
+//    func readArtworkNameFromPlist(_ indexNumber: Int) -> String {
+//        readFromPlist()
+//        var infoDict = NSDictionary();
+//        infoDict = audioList.object(at: indexNumber) as! NSDictionary
+//        let artworkName = infoDict.value(forKey: "albumArtwork") as! String
+//        return artworkName
+//    }
 
     
     func updateLabels(){
-        updateArtistNameLabel()
-        updateAlbumNameLabel()
-        updateSongNameLabel()
-        updateAlbumArtwork()
+//        updateArtistNameLabel()
+//        updateAlbumNameLabel()
+//        updateSongNameLabel()
+//        updateAlbumArtwork()
 
         
     }
     
     
-    func updateArtistNameLabel(){
-        let artistName = readArtistNameFromPlist(currentAudioIndex)
-        artistNameLabel.text = artistName
-    }
-    func updateAlbumNameLabel(){
-        let albumName = readAlbumNameFromPlist(currentAudioIndex)
-        //albumNameLabel.text = albumName
-    }
-    
-    func updateSongNameLabel(){
-        let songName = readSongNameFromPlist(currentAudioIndex)
-        songNameLabel.text = songName
-    }
-    
-    func updateAlbumArtwork(){
-        let artworkName = readArtworkNameFromPlist(currentAudioIndex)
-        albumArtworkImageView.image = UIImage(named: artworkName)
-    }
+//    func updateArtistNameLabel(){
+//        let artistName = readArtistNameFromPlist(currentAudioIndex)
+//        artistNameLabel.text = artistName
+//    }
+//    func updateAlbumNameLabel(){
+//        let albumName = readAlbumNameFromPlist(currentAudioIndex)
+//        //albumNameLabel.text = albumName
+//    }
+//    
+//    func updateSongNameLabel(){
+//        let songName = readSongNameFromPlist(currentAudioIndex)
+//        songNameLabel.text = songName
+//    }
+//    
+//    func updateAlbumArtwork(){
+//        let artworkName = readArtworkNameFromPlist(currentAudioIndex)
+//        albumArtworkImageView.image = UIImage(named: artworkName)
+//    }
     
   
     //creates animation and push table view to screen
@@ -775,7 +854,21 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     
     
+    // MARK: - GADNativeExpressAdViewDelegate
     
+    func nativeExpressAdViewDidReceiveAd(_ nativeExpressAdView: GADNativeExpressAdView) {
+        if nativeExpressAdView.videoController.hasVideoContent() {
+            print("Received an ad with a video asset.")
+        } else {
+            print("Received an ad without a video asset.")
+        }
+    }
+    
+    // MARK: - GADVideoControllerDelegate
+    
+    func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
+        print("The video asset has completed playback.")
+    }
     
     
 }
